@@ -15,16 +15,26 @@ const constants = require('..')
 
 const BIN = `by-arch/${platform}-${arch}/bin/`
 const LOCALDEV = CHECKOUT && CHECKOUT.length === null
-const swapURL = MOUNT.pathname.endsWith('.bundle/') ? new URL('..', MOUNT) : MOUNT
-const toPath = u => fileURLToPath(u).replace(/[/\\]$/, '') || '/'
-const PLATFORM_URL = LOCALDEV ? new URL('pear/', swapURL) : new URL('../../../', swapURL)
+const swapURL = MOUNT.pathname.endsWith('.bundle/')
+  ? new URL('..', MOUNT)
+  : MOUNT
+const toPath = (u) => fileURLToPath(u).replace(/[/\\]$/, '') || '/'
+const PLATFORM_URL = LOCALDEV
+  ? new URL('pear/', swapURL)
+  : new URL('../../../', swapURL)
 const RUNTIME_EXEC = isWindows ? 'pear-runtime.exe' : 'pear-runtime'
-const WAKEUP_EXEC = isWindows ? 'pear.exe' : isLinux ? 'pear' : 'Pear.app/Contents/MacOS/Pear'
+const WAKEUP_EXEC = isWindows
+  ? 'pear.exe'
+  : isLinux
+    ? 'pear'
+    : 'Pear.app/Contents/MacOS/Pear'
 
 test('derived paths match implementation', (t) => {
   const expSwap = toPath(swapURL)
   const expPlatformDir = toPath(PLATFORM_URL)
-  const expPlatformLock = toPath(new URL('corestores/platform/db/LOCK', PLATFORM_URL))
+  const expPlatformLock = toPath(
+    new URL('corestores/platform/db/LOCK', PLATFORM_URL)
+  )
   const expRuntime = toPath(new URL(BIN + RUNTIME_EXEC, swapURL))
   const expWakeup = toPath(new URL(BIN + WAKEUP_EXEC, swapURL))
   const expMountHref = MOUNT.href.slice(0, -1)
