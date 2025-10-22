@@ -32,9 +32,7 @@ const WAKEUP_EXEC = isWindows
 test('derived paths match implementation', (t) => {
   const expSwap = toPath(swapURL)
   const expPlatformDir = toPath(PLATFORM_URL)
-  const expPlatformLock = toPath(
-    new URL('corestores/platform/db/LOCK', PLATFORM_URL)
-  )
+  const expPlatformLock = toPath(new URL('platform_lock', PLATFORM_URL))
   const expRuntime = toPath(new URL(BIN + RUNTIME_EXEC, swapURL))
   const expWakeup = toPath(new URL(BIN + WAKEUP_EXEC, swapURL))
   const expMountHref = MOUNT.href.slice(0, -1)
