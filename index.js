@@ -18,7 +18,7 @@ const PLATFORM_URL = LOCALDEV
   : new URL('../../../', swapURL)
 
 const PLATFORM_DIR = toPath(PLATFORM_URL)
-const PLATFORM_LOCK = toPath(new URL('platform_lock', PLATFORM_URL))
+const PLATFORM_LOCK = toPath(new URL('pear.lock', PLATFORM_URL))
 
 const RUNTIME_EXEC = isWindows ? 'pear-runtime.exe' : 'pear-runtime'
 
