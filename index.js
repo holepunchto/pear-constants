@@ -1,10 +1,10 @@
 'use strict'
 const { platform, arch, isWindows, isLinux } = require('which-runtime')
 const { fileURLToPath } = require('url-file-url')
-const sodium = require('sodium-native')
 const b4a = require('b4a')
 const { CHECKOUT, MOUNT } = require('pear-rti')
 const { ALIASES, EOLS } = require('pear-aliases')
+const pipeId = require('#pipe-id')
 
 const BIN = 'by-arch/' + platform + '-' + arch + '/bin/'
 const LOCALDEV = CHECKOUT.length === null
@@ -65,10 +65,4 @@ exports.KNOWN_NODES_LIMIT = 100
 
 function toPath(u) {
   return fileURLToPath(u).replace(/[/\\]$/, '') || '/'
-}
-
-function pipeId(s) {
-  const buf = b4a.allocUnsafe(32)
-  sodium.crypto_generichash(buf, b4a.from(s))
-  return b4a.toString(buf, 'hex')
 }

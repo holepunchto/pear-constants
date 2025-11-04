@@ -3,9 +3,18 @@
   "version": "1.1.0",
   "main": "index.js",
   "type": "commonjs",
+  "imports": {
+    "#pipe-id": {
+      "electron": "./electron/pipe-id.js",
+      "default": "./default/pipe-id.js"
+    }
+  },
   "description": "Pear constants",
   "license": "Apache-2.0",
-  "files": [],
+  "files": [
+    "default/",
+    "electron/"
+  ],
   "scripts": {
     "format": "prettier --write .",
     "lint": "prettier --check .",
@@ -19,6 +28,7 @@
   },
   "dependencies": {
     "b4a": "^1.6.7",
+    "blake2b": "^2.1.4",
     "pear-aliases": "^1.0.2",
     "pear-rti": "^1.0.1",
     "sodium-native": "^5.0.6",
