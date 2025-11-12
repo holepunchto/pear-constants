@@ -99,3 +99,8 @@ test('mount .bundle parent handling (conditional)', (t) => {
 
   t.is(constants.SWAP, expectedSwap)
 })
+
+test('mount .bundle parent handling (conditional)', (t) => {
+  t.plan(1)
+  t.ok(constants.CURRENT_RUNTIME)
+})
