@@ -55,6 +55,9 @@ exports.SPINDOWN_TIMEOUT = 60_000
 
 exports.WAKEUP = toPath(new URL(BIN + WAKEUP_EXEC, swapURL))
 exports.RUNTIME = toPath(new URL(BIN + RUNTIME_EXEC, swapURL))
+exports.PUBLIC_RUNTIME = toPath(
+  new URL((LOCALDEV ? '../' : 'current/') + BIN + RUNTIME_EXEC, PLATFORM_URL)
+)
 
 exports.SALT = b4a.from(
   'd134aa8b0631f1193b5031b356d82dbea214389208fa4a0bcdf5c2e062d8ced2',
