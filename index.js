@@ -55,7 +55,7 @@ exports.SPINDOWN_TIMEOUT = 60_000
 
 exports.WAKEUP = toPath(new URL(BIN + WAKEUP_EXEC, swapURL))
 exports.RUNTIME = toPath(new URL(BIN + RUNTIME_EXEC, swapURL))
-exports.CURRENT_RUNTIME = toPath(
+exports.PUBLIC_RUNTIME = toPath(
   new URL((LOCALDEV ? '../' : 'current/') + BIN + RUNTIME_EXEC, PLATFORM_URL)
 )
 

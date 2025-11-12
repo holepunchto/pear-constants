@@ -102,5 +102,5 @@ test('mount .bundle parent handling (conditional)', (t) => {
 
 test('mount .bundle parent handling (conditional)', (t) => {
   t.plan(1)
-  t.ok(constants.CURRENT_RUNTIME)
+  t.ok(constants.PUBLIC_RUNTIME)
 })
