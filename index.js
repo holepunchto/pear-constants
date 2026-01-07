@@ -52,6 +52,7 @@ exports.BOOT = require.main?.filename
 exports.CONNECT_TIMEOUT = 20_000
 exports.IDLE_TIMEOUT = 30_000
 exports.SPINDOWN_TIMEOUT = 60_000
+exports.WARMUP_DOWNLOAD_TIMEOUT = 20_000
 
 exports.WAKEUP = toPath(new URL(BIN + WAKEUP_EXEC, swapURL))
 exports.RUNTIME = toPath(new URL(BIN + RUNTIME_EXEC, swapURL))
